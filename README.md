@@ -1,0 +1,1 @@
+# slick.js_thumbnail-demo
