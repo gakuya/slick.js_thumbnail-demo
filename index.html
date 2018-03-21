@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slick.js demo</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: rgb(133, 190, 255);
+        }
+        .slick-img {
+            width: 800px;
+            margin: auto auto 16px;
+        }
+        .slick-thumbnail {
+            width: 480px;
+            margin: auto;
+        }
+        .slick-thumbnail img {
+            margin: auto;
+        }
+        .slick-thumbnail .slick-current img {
+            width: 100%;
+            border: 2px solid rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="slick-img">
+        <div><img src="./img/img01.jpg" alt=""></div>
+        <div><img src="./img/img02.jpg" alt=""></div>
+        <div><img src="./img/img03.jpg" alt=""></div>
+        <!--<div><img src="./img/img04.jpg" alt=""></div>-->
+    </div>
+    <div class="slick-thumbnail">
+        <div class="slick-thumbnail_item"><img src="./img/img01_thumb.jpg" alt=""></div>
+        <div class="slick-thumbnail_item"><img src="./img/img02_thumb.jpg" alt=""></div>
+        <div class="slick-thumbnail_item"><img src="./img/img03_thumb.jpg" alt=""></div>
+        <!--<div><img src="./img/img04_thumb.jpg" alt=""></div>-->
+    </div>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(function(){
+            $('.slick-img').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                asNavFor: '.slick-thumbnail',
+            });
+            
+            $('.slick-thumbnail').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slick-img',
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                focusOnSelect: true,
+                centerMode: true,
+                centerPadding: 0,
+            });
+
+            $('.slick-img').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                if ($('.slick-thumbnail .slick-thumbnail-item').length < 4) {
+                    $('.slick-thumbnail').slick('slickSetOption', 'centerMode', true, true);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
