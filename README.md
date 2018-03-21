@@ -46,4 +46,4 @@ $('.slick-thumbnail').slick({
 
 ## サンプル画像について
 
-サンプル画像はぱくたそ(https://www.pakutaso.com/)を利用しています。
+サンプル画像はぱくたそ( https://www.pakutaso.com/ )を利用しています。
